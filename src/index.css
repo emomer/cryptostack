@@ -1,0 +1,213 @@
+@import "tailwindcss";
+
+/* Particle Hero Background */
+@layer utilities {
+  @keyframes float {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-30px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+  .particle {
+    animation: float linear infinite;
+  }
+}
+
+/* mulish-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 400;
+  src: url("assets/fonts/mulish-v13-latin-regular.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* mulish-500 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 500;
+  src: url("assets/fonts/mulish-v13-latin-500.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* mulish-600 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 600;
+  src: url("assets/fonts/mulish-v13-latin-600.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* mulish-700 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Mulish";
+  font-style: normal;
+  font-weight: 700;
+  src: url("assets/fonts/mulish-v13-latin-700.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+:root {
+  --primary-color: #21bf73;
+  --hover-color-green: #1ea162;
+  --hover-color-gray: #e5e5e5;
+  --text-light-gray: #a6adb9;
+  --background-dark-gray: #212121;
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: normal;
+}
+
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  font-family: Mulish, sans-serif;
+  background-color: black;
+  line-height: 1.5;
+}
+
+.container {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn {
+  padding: 8px 12px;
+  border-style: none;
+  border-radius: 8px;
+  cursor: pointer;
+  letter-spacing: 1px;
+}
+
+.nav-links:hover {
+  color: var(--hover-color-green);
+}
+
+/* ------------ FONT SIZES ----------- */
+h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -1px;
+}
+h2 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+h3 {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+h4 {
+  font-size: 1.2rem;
+}
+p {
+  font-size: 1rem;
+}
+
+/* ------------ MEDIA QUERIES ----------- */
+/* xl */
+@media (max-width: 1280px) {
+  .container {
+    max-width: 1024px;
+  }
+  h1 {
+    font-size: 2.7rem;
+  }
+}
+/* lg */
+@media (max-width: 1024px) {
+  .container {
+    max-width: 768px;
+  }
+  h1 {
+    font-size: 3rem;
+  }
+  h2 {
+    font-size: 1.8rem;
+  }
+  h3 {
+    font-size: 1.3rem;
+  }
+  h4 {
+    font-size: 1.1rem;
+  }
+  p {
+    font-size: 0.95rem;
+  }
+}
+/* md */
+@media (max-width: 768px) {
+  .container {
+    max-width: 640px;
+  }
+}
+/* sm */
+@media (max-width: 640px) {
+  .container {
+    max-width: 475px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.6rem;
+  }
+  h3 {
+    font-size: 1.2rem;
+  }
+  h4 {
+    font-size: 1rem;
+  }
+  p {
+    font-size: 0.9rem;
+  }
+}
+/* xs */
+@media (max-width: 475px) {
+  .container {
+    width: 100%;
+    padding: 0.75rem;
+    overflow-x: hidden;
+  }
+  h1 {
+    font-size: 1.8rem;
+  }
+  h2 {
+    font-size: 1.3rem;
+  }
+  h3 {
+    font-size: 1rem;
+  }
+  p {
+    font-size: 0.8rem;
+  }
+  .margin-func {
+    margin-top: 2rem;
+  }
+}
