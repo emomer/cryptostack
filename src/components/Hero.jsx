@@ -21,7 +21,7 @@ export default function Hero() {
         <div className="container flex items-center justify-between relative z-10">
           {/* Left */}
           <div className="flex max-w-[400px] lg:max-w-[500px] xl:max-w-[600px] flex-col">
-            <h1 className="mb-4 text-white lg:text-xl xl:text-4xl font-bold">
+            <h1 className="mb-4 text-white lg:text-xl xl:text-4xl font-bold leading-tight">
               Invest in your future with confidence and secure your&nbsp;
               <span className="text-[var(--primary-color)]">
                 financial freedom
