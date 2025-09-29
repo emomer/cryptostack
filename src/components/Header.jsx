@@ -7,14 +7,14 @@ export default function Header() {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 1024);
   const [menuOpen, setMenuOpen] = useState(false);
 
-  // Fensterbreite überwachen → umschalten zwischen Desktop / Mobile
+  // Fensterbreite überwachen
   useEffect(() => {
     const onResize = () => setIsMobile(window.innerWidth < 1024);
     window.addEventListener("resize", onResize);
     return () => window.removeEventListener("resize", onResize);
   }, []);
 
-  // Klappt Menü zu, wenn wir in den Desktop‑Mode wechseln
+  // Menü zuklappen, wenn in den Desktop‑Mode gewechselt wird
   useEffect(() => {
     if (!isMobile) setMenuOpen(false);
   }, [isMobile]);

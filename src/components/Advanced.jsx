@@ -6,7 +6,7 @@ import { HiOutlineShieldCheck } from "react-icons/hi";
 export default function Advanced() {
   return (
     <section className="container flex flex-col items-center mt-50">
-      <div className="flex flex-col  items-center justify-center max-w-[700px]">
+      <div className="flex flex-col items-center justify-center max-w-[700px]">
         <div className="uppercase text-[var(--primary-color)] mb-[24px]">
           Advanced Trading Suite
         </div>

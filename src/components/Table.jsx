@@ -6,30 +6,21 @@ const CryptoTable = () => {
   const [cryptos, setCryptos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [view, setView] = useState("all"); // 'all' or 'favorites'
+  const [view, setView] = useState("all"); // 'all' oder 'favorites'
   const [favorites, setFavorites] = useState([]);
   const [notification, setNotification] = useState(null);
   const [debugInfo, setDebugInfo] = useState("");
 
-  // Debug helper function
   const addDebugInfo = (info) => {
     console.log(info);
     setDebugInfo((prev) => `${prev}\n${info}`);
   };
 
-  // Fetch crypto data
+  // Fetch crypto daten
   const fetchCryptos = async () => {
     try {
       addDebugInfo("Fetching cryptocurrency data...");
-      const apiKey = import.meta.env.VITE_COINCAP_KEY;
-      const response = await fetch(
-        "https://rest.coincap.io/v3/assets?limit=10",
-        {
-          headers: {
-            Authorization: `Bearer ${apiKey}`,
-          },
-        }
-      );
+      const response = await fetch("/.netlify/functions/cryptos");
 
       if (!response.ok) {
         throw new Error(`Network response was not ok: ${response.status}`);
@@ -51,7 +42,6 @@ const CryptoTable = () => {
         }
       } catch (err) {
         addDebugInfo(`Error loading favorites: ${err.message}`);
-        // Not critical, can be ignored
       }
 
       setLoading(false);
@@ -62,12 +52,11 @@ const CryptoTable = () => {
     }
   };
 
-  // Component loads
   useEffect(() => {
     fetchCryptos();
   }, []);
 
-  // Save favorites to localStorage when they change
+  // Favorites speichern wenn etwas geändert wird
   useEffect(() => {
     try {
       localStorage.setItem("cryptoFavorites", JSON.stringify(favorites));
@@ -76,7 +65,7 @@ const CryptoTable = () => {
     }
   }, [favorites]);
 
-  // Notification disappears after 3 seconds
+  // Notification nach 3
   useEffect(() => {
     if (notification) {
       const timer = setTimeout(() => {
@@ -86,7 +75,6 @@ const CryptoTable = () => {
     }
   }, [notification]);
 
-  // Toggle favorites
   const toggleFavorite = (id, name) => {
     if (favorites.includes(id)) {
       setFavorites(favorites.filter((favId) => favId !== id));
@@ -97,7 +85,6 @@ const CryptoTable = () => {
     }
   };
 
-  // Filter cryptos based on view
   const displayedCryptos =
     view === "favorites"
       ? cryptos.filter((crypto) => favorites.includes(crypto.id))
